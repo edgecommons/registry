@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-06-29",
+  "updated": "2026-07-01",
   "components": [
     {
       "name": "opcua-adapter",
@@ -8,7 +8,7 @@
       "language": "JAVA",
       "category": "adapter",
       "protocol": "OPC UA",
-      "description": "Java reference southbound adapter (Eclipse Milo). Subscribes to OPC UA nodes and republishes value changes as SouthboundTagUpdate messages; serves on-demand reads/writes and emits the southbound_health metric.",
+      "description": "Java reference southbound adapter (Eclipse Milo). Subscribes to OPC UA nodes and republishes value changes as SouthboundSignalUpdate messages; serves on-demand reads/writes and emits the southbound_health metric.",
       "status": "beta",
       "platforms": ["GREENGRASS", "HOST", "KUBERNETES"],
       "library": "com.mbreissi:ggcommons",
@@ -19,12 +19,23 @@
       "repo": "edgecommons/modbus-adapter",
       "language": "PYTHON",
       "category": "adapter",
-      "protocol": "Modbus",
-      "description": "Python reference southbound adapter (pymodbus). Polls Modbus TCP / serial RTU / RTU-over-TCP register maps and republishes value changes as SouthboundTagUpdate messages; serves reads/writes and emits the southbound_health metric.",
+      "protocol": "Modbus (TCP / RTU / RTU-over-TCP)",
+      "description": "Python reference southbound adapter (pymodbus). Polls Modbus TCP / serial RTU / RTU-over-TCP register maps and republishes value changes as SouthboundSignalUpdate messages; serves reads/writes and emits the southbound_health metric.",
       "status": "beta",
       "platforms": ["GREENGRASS", "HOST", "KUBERNETES"],
       "library": "greengrass-commons",
       "topics": ["edgecommons", "aws-iot-greengrass", "iiot", "modbus", "edgecommons-adapter"]
+    },
+    {
+      "name": "telemetry-processor",
+      "repo": "edgecommons/telemetry-processor",
+      "language": "RUST",
+      "category": "processor",
+      "description": "Rust reference processing component: the high-throughput northbound seam between southbound adapters and the cloud. Subscribes to configured (wildcard, templated) local telemetry topics, runs a declarative per-route pipeline (filter / sample / aggregate / project / script — Rhai or Lua), and forwards results to a target: local republish, northbound MQTT/IoT Core, or a durable stream (Kinesis / Kafka / rolling Parquet-AVRO files).",
+      "status": "experimental",
+      "platforms": ["GREENGRASS", "HOST", "KUBERNETES"],
+      "library": "ggcommons",
+      "topics": ["edgecommons", "aws-iot-greengrass", "iiot", "telemetry", "stream-processing", "edgecommons-processor"]
     }
   ]
 }
