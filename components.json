@@ -47,6 +47,17 @@
       "platforms": ["HOST", "KUBERNETES"],
       "library": "ggcommons",
       "topics": ["edgecommons", "aws-iot-greengrass", "iiot", "unified-namespace", "mqtt", "edgecommons-bridge"]
+    },
+    {
+      "name": "edge-console",
+      "repo": "edgecommons/edge-console",
+      "language": "TYPESCRIPT",
+      "category": "console",
+      "description": "Edge-deployed real-time web console and the site's sole browser-to-bus bridge (HTTPS+WS in front, MQTT/UNS behind). A Node backend on the ggcommons TS library consumes the six UNS consumer classes from the site broker into a timestamped last-known-value FleetModel with console-side miss-detection (cfg-derived cadence, stale/offline ladder, whole-device UNREACHABLE from the uns-bridge LWT); an IBM Carbon/React UI serves edge-health and config-review views.",
+      "status": "experimental",
+      "platforms": ["HOST", "KUBERNETES"],
+      "library": "@edgecommons/ggcommons",
+      "topics": ["edgecommons", "aws-iot-greengrass", "iiot", "unified-namespace", "console", "edgecommons-console"]
     }
   ]
 }
