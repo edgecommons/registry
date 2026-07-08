@@ -6,8 +6,8 @@
    (`opcua-adapter`, `s7-adapter`, `rollup-processor`, `kafka-sink`). Do **not** prefix with
    `edgecommons-` — the org namespaces it.
 3. **Topic** the repo: `edgecommons`, the category topic (`edgecommons-adapter` /
-   `edgecommons-processor` / `edgecommons-sink`), plus `aws-iot-greengrass`, `iiot`, and a protocol
-   topic where relevant.
+   `edgecommons-processor` / `edgecommons-sink` / `edgecommons-service`), plus
+   `aws-iot-greengrass`, `iiot`, and a protocol topic where relevant.
 4. **Add an entry** to `components.json` and open a PR. Required fields: `name`, `repo`, `language`,
    `category`, `description`. Recommended: `protocol`, `status`, `platforms`, `library`, `topics`.
    See `registry.schema.json` for the full contract.
@@ -19,6 +19,9 @@
 | `adapter` | Southbound — ingests from field devices / protocols (OPC UA, Modbus, BACnet, …). |
 | `processor` | Edge compute — transforms, aggregates, or analyzes data in flight. |
 | `sink` | Northbound — forwards data to cloud, a historian, Kafka, etc. |
+| `bridge` | Connects buses or namespaces without owning source protocol semantics. |
+| `console` | Operator-facing UI/backend component. |
+| `service` | Shared runtime service consumed by other components, such as configuration. |
 
 ## Validation
 

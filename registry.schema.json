@@ -35,7 +35,7 @@
         },
         "category": {
           "type": "string",
-          "enum": ["adapter", "processor", "sink", "bridge", "console"]
+          "enum": ["adapter", "processor", "sink", "bridge", "console", "service"]
         },
         "protocol": {
           "type": "string",

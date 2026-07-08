@@ -1,8 +1,8 @@
 # edgecommons component registry
 
 The machine-readable catalog of components in the **edgecommons** ecosystem — protocol adapters,
-edge processors, and northbound sinks built on the [`edgecommons`](https://github.com/edgecommons/edgecommons)
-library.
+edge processors, services, bridges, consoles, and northbound sinks built on the
+[`edgecommons`](https://github.com/edgecommons/edgecommons) library.
 
 - **`components.json`** — the catalog (source of truth for "what components exist").
 - **`registry.schema.json`** — JSON Schema the catalog is validated against in CI.
