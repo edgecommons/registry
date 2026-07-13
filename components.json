@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-07-07",
+  "updated": "2026-07-11",
   "components": [
     {
       "name": "opcua-adapter",
@@ -25,6 +25,18 @@
       "platforms": ["GREENGRASS", "HOST", "KUBERNETES"],
       "library": "edgecommons",
       "topics": ["edgecommons", "aws-iot-greengrass", "iiot", "modbus", "edgecommons-adapter"]
+    },
+    {
+      "name": "camera-adapter",
+      "repo": "edgecommons/camera-adapter",
+      "language": "RUST",
+      "category": "adapter",
+      "protocol": "ONVIF / RTSP / GenICam",
+      "description": "Rust southbound image-capture adapter for ONVIF snapshot and RTSP cameras, with optional Linux GenICam/Aravis support. Schedules and commands create durable local images, publish terminal metadata, and expose capability-gated PTZ and preset operations.",
+      "status": "experimental",
+      "platforms": ["GREENGRASS", "HOST", "KUBERNETES"],
+      "library": "edgecommons",
+      "topics": ["edgecommons", "aws-iot-greengrass", "iiot", "camera", "onvif", "rtsp", "genicam", "edgecommons-adapter"]
     },
     {
       "name": "telemetry-processor",
