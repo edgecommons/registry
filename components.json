@@ -95,6 +95,17 @@
       "topics": ["edgecommons", "cli", "uns", "iiot", "edgecommons-tool"]
     },
     {
+      "name": "ec-secrets",
+      "repo": "edgecommons/ec-secrets",
+      "language": "RUST",
+      "category": "tool",
+      "description": "EdgeCommons vault-seeding CLI. Populates and manages the LOCAL credentials vault (set/get/list/delete/import) that components read via gg.credentials() and $secret refs — same envelope encryption + KeyProvider (file/env/kms). Built on the library, so what it writes is exactly what a component decrypts.",
+      "status": "experimental",
+      "platforms": ["HOST"],
+      "library": "edgecommons",
+      "topics": ["edgecommons", "cli", "secrets", "vault", "credentials", "edgecommons-tool"]
+    },
+    {
       "name": "config-component",
       "repo": "edgecommons/config-component",
       "language": "RUST",
