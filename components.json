@@ -84,8 +84,8 @@
       "topics": ["edgecommons", "aws-iot-greengrass", "iiot", "unified-namespace", "console", "edgecommons-console"]
     },
     {
-      "name": "uns-cmd",
-      "repo": "edgecommons/uns-cmd",
+      "name": "ec-uns-cmd",
+      "repo": "edgecommons/ec-uns-cmd",
       "language": "RUST",
       "category": "tool",
       "description": "EdgeCommons UNS command-line tool. Sends a cmd/sb/* (or any) command to a component's command inbox over the UNS and prints the correlated reply; reaches Greengrass/IPC components via uns-bridge. Operate and test any EdgeCommons component from the shell.",
