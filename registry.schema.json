@@ -46,6 +46,10 @@
           "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$",
           "description": "owner/name on GitHub, e.g. edgecommons/opcua-adapter"
         },
+        "docsPath": {
+          "type": "string",
+          "description": "Path to the entry's `docs/` folder within its repo, when it is not at the repo root. Needed for entries that ship from a monorepo - the `edgecommons` CLI lives at `cli/` inside the library repo, whose root `docs/` holds the library's own internal design docs. Omit for the usual one-repo-per-entry case."
+        },
         "language": {
           "type": "string",
           "enum": [

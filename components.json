@@ -249,6 +249,24 @@
         "s3",
         "edgecommons-sink"
       ]
+    },
+    {
+      "name": "edgecommons",
+      "repo": "edgecommons/edgecommons",
+      "docsPath": "cli/docs",
+      "language": "RUST",
+      "category": "tool",
+      "description": "The EdgeCommons CLI. One static binary that scaffolds components in four languages, validates their config and artifacts against the canonical schema, moves them between library versions, packages and releases them, and compiles a deployment definition into platform-native artifacts. Carries the templates and schema inside itself, so it works offline.",
+      "status": "beta",
+      "library": "edgecommons",
+      "topics": [
+        "edgecommons",
+        "cli",
+        "scaffolding",
+        "deployment",
+        "iiot",
+        "edgecommons-tool"
+      ]
     }
   ]
 }
