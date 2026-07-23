@@ -4,20 +4,37 @@
   "title": "edgecommons component registry",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "components"],
+  "required": [
+    "schemaVersion",
+    "components"
+  ],
   "properties": {
-    "schemaVersion": { "type": "integer", "const": 1 },
-    "updated": { "type": "string", "description": "ISO date (YYYY-MM-DD) the catalog was last edited" },
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "updated": {
+      "type": "string",
+      "description": "ISO date (YYYY-MM-DD) the catalog was last edited"
+    },
     "components": {
       "type": "array",
-      "items": { "$ref": "#/$defs/component" }
+      "items": {
+        "$ref": "#/$defs/component"
+      }
     }
   },
   "$defs": {
     "component": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "repo", "language", "category", "description"],
+      "required": [
+        "name",
+        "repo",
+        "language",
+        "category",
+        "description"
+      ],
       "properties": {
         "name": {
           "type": "string",
@@ -31,34 +48,68 @@
         },
         "language": {
           "type": "string",
-          "enum": ["JAVA", "PYTHON", "RUST", "TYPESCRIPT"]
+          "enum": [
+            "JAVA",
+            "PYTHON",
+            "RUST",
+            "TYPESCRIPT"
+          ]
         },
         "category": {
           "type": "string",
-          "enum": ["adapter", "processor", "sink", "bridge", "console", "service"]
+          "enum": [
+            "adapter",
+            "processor",
+            "sink",
+            "bridge",
+            "console",
+            "service"
+          ]
         },
         "protocol": {
           "type": "string",
           "description": "Optional field/transport protocol, e.g. OPC UA, Modbus"
         },
-        "description": { "type": "string", "minLength": 10 },
+        "description": {
+          "type": "string",
+          "minLength": 10
+        },
         "status": {
           "type": "string",
-          "enum": ["experimental", "beta", "stable", "deprecated"],
+          "enum": [
+            "experimental",
+            "beta",
+            "stable",
+            "deprecated"
+          ],
           "default": "experimental"
         },
         "platforms": {
           "type": "array",
-          "items": { "type": "string", "enum": ["GREENGRASS", "HOST", "KUBERNETES"] },
+          "items": {
+            "type": "string",
+            "enum": [
+              "GREENGRASS",
+              "HOST",
+              "KUBERNETES"
+            ]
+          },
           "uniqueItems": true
         },
         "library": {
           "type": "string",
           "description": "The edgecommons coordinate this component builds on, e.g. com.mbreissi.edgecommons:edgecommons or edgecommons"
         },
+        "greengrassComponentName": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9]*(\\.[A-Za-z][A-Za-z0-9]*)+$",
+          "description": "The component's AWS IoT Greengrass component name, as published in its recipe (e.g. com.mbreissi.edgecommons.OpcUaAdapter). It is NOT derivable from `name` - 'opcua-adapter' publishes as 'OpcUaAdapter' - so a deployment targeting Greengrass resolves it from here. Omit for components that do not publish a Greengrass component."
+        },
         "topics": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "uniqueItems": true
         }
       }
