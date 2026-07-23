@@ -63,8 +63,10 @@
             "sink",
             "bridge",
             "console",
-            "service"
-          ]
+            "service",
+            "tool"
+          ],
+          "description": "What the entry is. `tool` is an operator/developer CLI built on the library rather than a deployable edge component; the docs site and org profile list tools separately."
         },
         "protocol": {
           "type": "string",
