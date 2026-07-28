@@ -55,7 +55,7 @@
       "category": "adapter",
       "protocol": "ONVIF / RTSP / GenICam",
       "description": "Rust southbound image-capture adapter for ONVIF snapshot and RTSP cameras, with optional Linux GenICam/Aravis support. Schedules and commands create durable local images, publish terminal metadata, and expose capability-gated PTZ and preset operations.",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "GREENGRASS",
         "HOST",
@@ -81,7 +81,7 @@
       "category": "adapter",
       "protocol": "EtherNet/IP (Allen-Bradley CIP; explicit polling + class-1 implicit I/O)",
       "description": "Rust reference southbound EtherNet/IP adapter on an owned, memory-safe pure-Rust EtherNet/IP + CIP stack. Polls Allen-Bradley Logix tags (CIP explicit messaging) and consumes class-1 implicit I/O assemblies, republishing as SouthboundSignalUpdate; serves read/write/status/pause/resume/browse commands and emits southbound_health plus the EtherNetIp* operational metrics.",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "GREENGRASS",
         "HOST",
@@ -105,7 +105,7 @@
       "category": "adapter",
       "protocol": "MTConnect (HTTP/XML; streaming + polling)",
       "description": "Southbound MTConnect client adapter - consumes one or more MTConnect agents. Reads each agent's device model and observations over HTTP (multipart streaming with a polling fallback and automatic resync on data loss or agent restart) and republishes them as SouthboundSignalUpdate messages; serves status/read/browse commands and emits southbound_health plus MTConnect-specific operational metrics. Read-only by protocol specification.",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "GREENGRASS",
         "HOST",
@@ -127,7 +127,7 @@
       "language": "RUST",
       "category": "processor",
       "description": "Rust reference processing component: the high-throughput northbound seam between southbound adapters and the cloud. Subscribes to configured (wildcard, templated) local telemetry topics, runs a declarative per-route pipeline (filter / sample / aggregate / project / script \u2014 Rhai or Lua), and forwards results to a target: local republish, northbound MQTT/IoT Core, or a durable stream (Kinesis / Kafka / rolling Parquet-AVRO files).",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "GREENGRASS",
         "HOST",
@@ -150,7 +150,7 @@
       "language": "RUST",
       "category": "bridge",
       "description": "Envelope-aware UNS relay between a device bus and a site broker. Uplinks the six UNS consumer classes topic-verbatim with hop-tag loop protection and per-class policy (rate caps, evt replay buffer), relays own-device commands back down, and proxies request/reply across the bridge (reply_to rewrite). One uns-bridge per device bus.",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "HOST",
         "KUBERNETES"
@@ -172,7 +172,7 @@
       "language": "RUST",
       "category": "console",
       "description": "Edge-deployed real-time web console and the site's sole browser-to-bus bridge (HTTPS+WS in front, MQTT/UNS behind). A Rust gateway (edge-console-gateway) consumes the six UNS consumer classes from the site broker into a timestamped last-known-value model with console-side miss-detection (cfg-derived cadence, stale/offline ladder, whole-device UNREACHABLE from the uns-bridge LWT) and self-serves an IBM Carbon/React UI for edge-health, signals, events, config-review, and command views.",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "HOST",
         "KUBERNETES"
@@ -194,7 +194,7 @@
       "language": "RUST",
       "category": "tool",
       "description": "EdgeCommons UNS command-line tool. Sends a cmd/sb/* (or any) command to a component's command inbox over the UNS and prints the correlated reply; reaches Greengrass/IPC components via uns-bridge. Operate and test any EdgeCommons component from the shell.",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "HOST"
       ],
@@ -213,7 +213,7 @@
       "language": "RUST",
       "category": "tool",
       "description": "EdgeCommons vault-seeding CLI. Populates and manages the LOCAL credentials vault (set/get/list/delete/import) that components read via gg.credentials() and $secret refs \u2014 same envelope encryption + KeyProvider (file/env/kms). Built on the library, so what it writes is exactly what a component decrypts.",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "HOST"
       ],
@@ -233,7 +233,7 @@
       "language": "RUST",
       "category": "service",
       "description": "Rust dedicated configuration service for hierarchical-config deployments. Boots from its own non-CONFIG_COMPONENT source, loads a pluggable hierarchy catalog, serves ordered lineage bundles over the CONFIG_COMPONENT rendezvous, accepts privileged catalog replacement messages, and pushes accepted versions to consumers.",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "GREENGRASS",
         "HOST",
@@ -256,7 +256,7 @@
       "language": "RUST",
       "category": "sink",
       "description": "Rust reference sink component (northbound file delivery): watches local directories and replicates files to local, S3, or optional SFTP/FTPS, HTTP(S), Azure Blob, and GCS destinations on arrival or on cron schedules/windows. Resumable uploads with integrity verification, bandwidth caps, per-instance activation, on-complete delete/archive/quarantine, and a full control + event surface on a unified namespace.",
-      "status": "experimental",
+      "status": "beta",
       "platforms": [
         "GREENGRASS",
         "HOST",
