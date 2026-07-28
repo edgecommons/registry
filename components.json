@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-07-19",
+  "updated": "2026-07-28",
   "components": [
     {
       "name": "opcua-adapter",
@@ -95,6 +95,29 @@
         "iiot",
         "ethernet-ip",
         "cip",
+        "edgecommons-adapter"
+      ]
+    },
+    {
+      "name": "mtconnect-adapter",
+      "repo": "edgecommons/mtconnect-adapter",
+      "language": "RUST",
+      "category": "adapter",
+      "protocol": "MTConnect (HTTP/XML; streaming + polling)",
+      "description": "Southbound MTConnect client adapter - consumes one or more MTConnect agents. Reads each agent's device model and observations over HTTP (multipart streaming with a polling fallback and automatic resync on data loss or agent restart) and republishes them as SouthboundSignalUpdate messages; serves status/read/browse commands and emits southbound_health plus MTConnect-specific operational metrics. Read-only by protocol specification.",
+      "status": "experimental",
+      "platforms": [
+        "GREENGRASS",
+        "HOST",
+        "KUBERNETES"
+      ],
+      "library": "edgecommons",
+      "greengrassComponentName": "com.mbreissi.edgecommons.MtconnectAdapter",
+      "topics": [
+        "edgecommons",
+        "aws-iot-greengrass",
+        "iiot",
+        "mtconnect",
         "edgecommons-adapter"
       ]
     },
