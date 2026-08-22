@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-07-28",
+  "updated": "2026-08-22",
   "components": [
     {
       "name": "opcua-adapter",
@@ -141,6 +141,30 @@
         "iiot",
         "telemetry",
         "stream-processing",
+        "edgecommons-processor"
+      ]
+    },
+    {
+      "name": "image-processor",
+      "repo": "edgecommons/image-processor",
+      "language": "PYTHON",
+      "category": "processor",
+      "description": "Python reference inference component for image models: loads content-addressed, signed ONNX model bundles, runs NVIDIA GPU inference (ONNX Runtime) on finalized image files from an owned spool or on subscription-triggered images (inline or file reference), and publishes a versioned, durably confirmed inference result per image plus normalized decision signals, events, metrics, and an evidence sidecar.",
+      "status": "experimental",
+      "platforms": [
+        "GREENGRASS",
+        "HOST",
+        "KUBERNETES"
+      ],
+      "library": "edgecommons",
+      "greengrassComponentName": "com.mbreissi.edgecommons.ImageProcessor",
+      "topics": [
+        "edgecommons",
+        "aws-iot-greengrass",
+        "iiot",
+        "computer-vision",
+        "onnxruntime",
+        "machine-learning",
         "edgecommons-processor"
       ]
     },
