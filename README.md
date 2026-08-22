@@ -9,8 +9,8 @@ edge processors, services, bridges, consoles, and northbound sinks built on the
 
 ## Consumers
 
-- **CLI:** `edgecommons list-components` reads this catalog. This repo is **private**, so by default the
-  CLI fetches it with authentication via the GitHub CLI (`gh api .../contents/components.json`).
+- **CLI:** `edgecommons registry list|show|versions` reads this catalog. By default the CLI fetches it
+  through the GitHub CLI (`gh api .../contents/components.json`).
   Override with `--source <url|path>` or `$EDGECOMMONS_REGISTRY_URL` (e.g. a local clone, or a raw URL
   if this repo is later made public).
 - **Docs site:** renders a "Components" page from `components.json`.
