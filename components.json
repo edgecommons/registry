@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-07-28",
+  "updated": "2026-08-22",
   "components": [
     {
       "name": "opcua-adapter",
@@ -126,7 +126,7 @@
       "repo": "edgecommons/telemetry-processor",
       "language": "RUST",
       "category": "processor",
-      "description": "Rust reference processing component: the high-throughput northbound seam between southbound adapters and the cloud. Subscribes to configured (wildcard, templated) local telemetry topics, runs a declarative per-route pipeline (filter / sample / aggregate / project / script \u2014 Rhai or Lua), and forwards results to a target: local republish, northbound MQTT/IoT Core, or a durable stream (Kinesis / Kafka / rolling Parquet-AVRO files).",
+      "description": "Rust reference processing component: the high-throughput northbound seam between southbound adapters and the cloud. Subscribes to configured (wildcard, templated) local telemetry topics, runs a declarative per-route pipeline (filter / sample / aggregate / project / script — Rhai or Lua), and forwards results to a target: local republish, northbound MQTT/IoT Core, or a durable stream (Kinesis / Kafka / rolling Parquet-AVRO files).",
       "status": "beta",
       "platforms": [
         "GREENGRASS",
@@ -141,6 +141,30 @@
         "iiot",
         "telemetry",
         "stream-processing",
+        "edgecommons-processor"
+      ]
+    },
+    {
+      "name": "image-processor",
+      "repo": "edgecommons/image-processor",
+      "language": "PYTHON",
+      "category": "processor",
+      "description": "Python reference inference component for image models: loads content-addressed, signed ONNX model bundles, runs NVIDIA GPU inference (ONNX Runtime) on finalized image files from an owned spool or on subscription-triggered images (inline or file reference), and publishes a versioned, durably confirmed inference result per image plus normalized decision signals, events, metrics, and an evidence sidecar.",
+      "status": "experimental",
+      "platforms": [
+        "GREENGRASS",
+        "HOST",
+        "KUBERNETES"
+      ],
+      "library": "edgecommons",
+      "greengrassComponentName": "com.mbreissi.edgecommons.ImageProcessor",
+      "topics": [
+        "edgecommons",
+        "aws-iot-greengrass",
+        "iiot",
+        "computer-vision",
+        "onnxruntime",
+        "machine-learning",
         "edgecommons-processor"
       ]
     },
@@ -212,7 +236,7 @@
       "repo": "edgecommons/ec-secrets",
       "language": "RUST",
       "category": "tool",
-      "description": "EdgeCommons vault-seeding CLI. Populates and manages the LOCAL credentials vault (set/get/list/delete/import) that components read via gg.credentials() and $secret refs \u2014 same envelope encryption + KeyProvider (file/env/kms). Built on the library, so what it writes is exactly what a component decrypts.",
+      "description": "EdgeCommons vault-seeding CLI. Populates and manages the LOCAL credentials vault (set/get/list/delete/import) that components read via gg.credentials() and $secret refs — same envelope encryption + KeyProvider (file/env/kms). Built on the library, so what it writes is exactly what a component decrypts.",
       "status": "beta",
       "platforms": [
         "HOST"
