@@ -9,10 +9,12 @@ edge processors, services, bridges, consoles, and northbound sinks built on the
 
 ## Consumers
 
-- **CLI:** `edgecommons registry list|show|versions` reads this catalog. By default the CLI fetches it
+- **CLI:** `edgecommons registry list|show` reads this catalog. By default the CLI fetches it
   through the GitHub CLI (`gh api .../contents/components.json`).
-  Override with `--source <url|path>` or `$EDGECOMMONS_REGISTRY_URL` (e.g. a local clone, or a raw URL
-  if this repo is later made public).
+  Override with `--source <path>` or `$EDGECOMMONS_REGISTRY_URL` set to a local `components.json`
+  path. This CLI build rejects HTTP URL sources; the environment variable retains its established
+  name. A local source works offline. `registry versions` verifies the component exists, then reports
+  the missing release index; it does not discover or enumerate package releases in this build.
 - **Docs site:** renders a "Components" page from `components.json`.
 
 ## Adding or updating a component
@@ -20,5 +22,7 @@ edge processors, services, bridges, consoles, and northbound sinks built on the
 Open a pull request editing `components.json` — see [`CONTRIBUTING.md`](CONTRIBUTING.md). CI validates
 the file against the schema before merge.
 
-This repository is **private** (matching the rest of the ecosystem for now); consumers read the
-catalog with their GitHub credentials. If you later want tokenless reads, make just this repo public.
+This repository is public. The CLI's default reader uses the authenticated GitHub CLI; use a local
+catalog path when operating offline. The catalog describes discovery and maturity, not a guarantee
+that every platform/feature has passed fresh validation. Per-component documentation records those
+limits. JSON in this repository is native catalog/schema JSON, not an EdgeCommons message envelope.

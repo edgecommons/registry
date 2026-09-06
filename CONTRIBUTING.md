@@ -22,6 +22,12 @@
 | `bridge` | Connects buses or namespaces without owning source protocol semantics. |
 | `console` | Operator-facing UI/backend component. |
 | `service` | Shared runtime service consumed by other components, such as configuration. |
+| `tool` | Developer or operator CLI run from a shell rather than deployed as a component. |
+
+Catalog entries describe discovery and declared support. Keep experimental or incomplete surfaces
+explicit in the owning documentation, with dated validation evidence. `components.json` is native
+catalog JSON; full EdgeCommons message examples in component docs are JSON projections of protobuf
+MQTT/IPC messages. List signals as signals; envelope `tags` remain message metadata.
 
 ## Validation
 

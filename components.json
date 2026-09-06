@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-08-22",
+  "updated": "2026-09-06",
   "components": [
     {
       "name": "opcua-adapter",
@@ -173,9 +173,10 @@
       "repo": "edgecommons/uns-bridge",
       "language": "RUST",
       "category": "bridge",
-      "description": "Envelope-aware UNS relay between a device bus and a site broker. Uplinks the six UNS consumer classes topic-verbatim with hop-tag loop protection and per-class policy (rate caps, evt replay buffer), relays own-device commands back down, and proxies request/reply across the bridge (reply_to rewrite). One uns-bridge per device bus.",
+      "description": "Protobuf-envelope-aware UNS relay between a device bus and a site broker. Uplinks the six UNS consumer classes at component and instance scope with hop-tag loop protection and per-class policy (rate caps, evt replay buffer), relays own-device commands back down, and proxies request/reply across the bridge (reply_to rewrite). One uns-bridge per device bus.",
       "status": "beta",
       "platforms": [
+        "GREENGRASS",
         "HOST",
         "KUBERNETES"
       ],
@@ -195,9 +196,10 @@
       "repo": "edgecommons/edge-console",
       "language": "RUST",
       "category": "console",
-      "description": "Edge-deployed real-time web console and the site's sole browser-to-bus bridge (HTTPS+WS in front, MQTT/UNS behind). A Rust gateway (edge-console-gateway) consumes the six UNS consumer classes from the site broker into a timestamped last-known-value model with console-side miss-detection (cfg-derived cadence, stale/offline ladder, whole-device UNREACHABLE from the uns-bridge LWT) and self-serves an IBM Carbon/React UI for edge-health, signals, events, config-review, and command views.",
+        "description": "Edge-deployed real-time web console and browser-to-bus bridge (native JSON over HTTP/WebSocket, TLS termination in front, protobuf MQTT/UNS behind). A Rust gateway (edge-console-gateway) consumes the six UNS consumer classes at component and instance scope into a timestamped last-known-value model with console-side miss-detection (cfg-derived cadence, stale/offline ladder, whole-device UNREACHABLE from the uns-bridge LWT) and serves an IBM Carbon/React UI for edge-health, signals, events, config-review, and command views.",
       "status": "beta",
       "platforms": [
+        "GREENGRASS",
         "HOST",
         "KUBERNETES"
       ],
